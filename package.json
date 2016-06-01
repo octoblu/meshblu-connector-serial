@@ -1,6 +1,6 @@
 {
   "name": "meshblu-connector-serial",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Meshblu Connector ",
   "homepage": "https://github.com/octoblu/serial",
   "bugs": "https://github.com/octoblu/serial/issues",
@@ -35,8 +35,7 @@
     "serialport": "^3.1.1"
   },
   "meshbluConnector": {
-    "githubSlug": "octoblu/meshblu-connector-serial",
-    "schemasUrl": "https://raw.githubusercontent.com/octoblu/meshblu-connector-serial/v1.0.0/schemas.json"
+    "githubSlug": "octoblu/meshblu-connector-serial"
   },
   "platformDependencies": {
     "darwin": [],
