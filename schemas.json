@@ -1,61 +1,59 @@
 {
   "schemas": {
     "version": "1.0.0",
-    "form": {
-      "message": {
-        "url": null
-      },
-      "configure": {
-        "url": null
-      }
-    },
     "configure": {
-      "url": null,
-      "options": {
-        "type" : "object",
-        "properties" : {
-          "type" : "object",
-          "properties" : {
-            "example" : {
-              "type" : "string"
+      "optionSchema": {
+        "type": "object",
+        "properties": {
+          "options": {
+            "type": "object",
+            "properties": {
+              "port": {
+                "type": "string",
+                "required": true
+              },
+              "baud": {
+                "type": "integer",
+                "required": true,
+                "enum": [
+                  115200,
+                  57600,
+                  38400,
+                  19200,
+                  9600,
+                  4800,
+                  2400,
+                  1800,
+                  1200,
+                  600,
+                  300,
+                  200,
+                  150,
+                  134,
+                  110,
+                  75,
+                  50
+                ],
+                "default": 57600
+              },
+              "delimiter": {
+                "type": "string",
+                "default": "\\n"
+              }
             }
           }
         }
       }
     },
     "message": {
-      "url": null,
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "definitions": {
-        "example-message-01": {
-          "type": "object",
-          "properties": {
-            "example-opt": {
-              "type": "string"
-            },
-            "another-example-opt":{
-              "type": "string"
-            }
-          },
-          "required": ["example-opt", "another-example-opt"]
-        },
-        "example-message-02": {
-          "type": "object",
-          "properties": {
-            "some-opt": {
-              "type": "string"
-            },
-            "another-some-opt":{
-              "type": "string"
-            }
-          },
-          "required": ["some-opt", "another-some-opt"]
+      "messageSchema": {
+        "type": "object",
+        "properties": {
+          "serial_out": {
+            "type": "string",
+            "required": true
+          }
         }
-      },
-      "type": "object",
-      "properties": {
-        "example-message-01": { "$ref": "#/definitions/example-message-01" },
-        "example-message-02": { "$ref": "#/definitions/example-message-02" }
       }
     }
   }

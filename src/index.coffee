@@ -3,7 +3,7 @@ debug           = require('debug')('meshblu-connector-serial:index')
 _               = require 'lodash'
 serialport      = require 'serialport'
 SerialPort      = serialport.SerialPort
-schemas         = require './legacySchemas.coffee'
+schemas         = require '../schemas.json'
 
 port = "COM4"
 baud = 9600
@@ -90,7 +90,7 @@ class Serial extends EventEmitter
       @getPorts (newPorts) =>
         if @options.port? && (_.indexOf newPorts, @options.port) == -1
           newPorts.push(@options.port)
-        schemas.optionsSchema.properties.port.enum = newPorts
+        schemas.schemas.configure.optionSchema.properties.options.properties.port.enum = newPorts
         if !(_.isEqual @ports, newPorts)
           @ports = newPorts
           debug 'setting', newPorts
@@ -117,6 +117,6 @@ class Serial extends EventEmitter
   start: (device) =>
     { @uuid } = device
     debug 'started', @uuid
-    @emit 'update', schemas
+    # @emit 'update', schemas
 
 module.exports = Serial
