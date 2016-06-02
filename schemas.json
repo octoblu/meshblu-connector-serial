@@ -2,19 +2,20 @@
   "schemas": {
     "version": "1.0.0",
     "configure": {
-      "optionSchema": {
+      "options": {
+        "title": "Default Config",
         "type": "object",
         "properties": {
           "options": {
             "type": "object",
             "properties": {
               "port": {
-                "type": "string",
-                "required": true
+                "title": "Serial Port",
+                "type": "string"
               },
               "baud": {
+                "title": "Baud Rate",
                 "type": "integer",
-                "required": true,
                 "enum": [
                   115200,
                   57600,
@@ -37,22 +38,50 @@
                 "default": 57600
               },
               "delimiter": {
+                "title": "Delimiter",
                 "type": "string",
                 "default": "\\n"
               }
-            }
+            },
+            "required": ["port", "baud", "delimiter"]
           }
         }
       }
     },
     "message": {
-      "messageSchema": {
+      "set-serial-out": {
+        "title": "Set Serial Out",
         "type": "object",
         "properties": {
           "serial_out": {
-            "type": "string",
-            "required": true
+            "title": "Serial Out",
+            "type": "string"
           }
+        },
+        "required": ["serial_out"]
+      },
+      "get-ports": {
+        "title": "Get Ports",
+        "type": "object",
+        "properties": {
+          "actionGetPorts": {
+            "title": "Get Ports",
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "x-form-schema": {
+          "angular": "message.get-ports.angular"
+        },
+        "required": ["actionGetPorts"]
+      }
+    },
+    "form": {
+      "message": {
+        "get-ports": {
+          "angular": [
+            { "key": "actionGetPorts" }
+          ]
         }
       }
     }
