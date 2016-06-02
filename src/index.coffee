@@ -30,7 +30,6 @@ class Serial extends EventEmitter
 
   setOptions: (options={}) =>
     { @port, @baud, delimiter } = options
-    @port ?= 'COM4'
     @baud ?= 9600
     delimiter ?= "\\n"
     @delimiter = delimiter.replace(/\\n/g, "\n").replace(/\\r/g, "\r").replace(/\\d/g, "\d").replace(/\\t/g, "\t")
@@ -113,12 +112,13 @@ class Serial extends EventEmitter
         serial_in: data.toString()
 
   emitError: (error) =>
+    return unless error?
     console.error error.message
     @emit 'message', {
       devices: ['*']
       topic: 'error'
       payload: {
-        error: error?.message ? error
+        error: error.message
       }
     }
 
