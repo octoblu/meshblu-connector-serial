@@ -1,3 +1,4 @@
+# Unofficial Octoblu Connector - Use at your own risk
 # meshblu-connector-serial
 
 [![Dependency status](http://img.shields.io/david/octoblu/meshblu-connector-serial.svg?style=flat)](https://david-dm.org/octoblu/meshblu-connector-serial)
