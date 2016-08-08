@@ -2,49 +2,49 @@
   "name": "meshblu-connector-serial",
   "version": "1.0.1",
   "description": "Meshblu Connector ",
-  "homepage": "https://github.com/octoblu/serial",
-  "bugs": "https://github.com/octoblu/serial/issues",
+  "homepage": "https://github.com/virgilvox/meshblu-connector-serial",
+  "bugs": "https://github.com/virgilvox/meshblu-connector-serial/issues",
   "author": {
-    "name": "Octoblu",
-    "url": "https://github.com/octoblu"
+    "name": "Moheeb Zara",
+    "url": "https://github.com/virgilvox"
   },
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/octoblu/serial.git"
+    "url": "https://github.com/virgilvox/meshblu-connector-serial.git"
   },
   "scripts": {
     "start": "meshblu-connector-runner",
     "test": "mocha",
-    "package": "meshblu-connector-packager"
+    "generate:package": "meshblu-connector-packager",
+    "generate:schema": "meshblu-connector-schema-generator > schemas.json"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "coffee-coverage": "^1.0.1",
-    "meshblu-connector-packager": "^12.0.0",
-    "mocha": "^2.4.5",
+    "mocha": "^3.0.2",
+    "segfault-handler": "^1.0.0",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
-    "async": "^1.5.2",
     "coffee-script": "^1.10.0",
     "debug": "^2.2.0",
-    "lodash": "^4.12.0",
-    "meshblu-connector-runner": "^6.0.0",
-    "serialport": "^3.1.1"
+    "fs-cson": "^0.3.2",
+    "meshblu-config": "^5.1.2",
+    "meshblu-connector-runner": "^9.1.1",
+    "meshblu-connector-schema-generator": "^2.1.0"
   },
   "meshbluConnector": {
-    "githubSlug": "octoblu/meshblu-connector-serial",
-    "schemasUrl": "https://raw.githubusercontent.com/octoblu/meshblu-connector-serial/v1.0.0/schemas.json"
+    "githubSlug": "virgilvox/meshblu-connector-serial"
   },
   "platformDependencies": {
     "darwin": [],
     "win32": [],
     "win64": [],
     "linux": [],
-    "android": [],
-    "ios": []
+    "android": null,
+    "ios": null
   },
   "license": "MIT",
   "keywords": [

@@ -1,0 +1,11 @@
+title: 'Serial Out'
+type: 'object'
+properties:
+  data:
+    type: 'object'
+    properties:
+      serial_out:
+        type: 'string'
+    required: [
+      'serial_out'
+    ]

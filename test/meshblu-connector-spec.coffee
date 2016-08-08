@@ -1,6 +1,6 @@
 Serial = require '../'
 
-describe 'Serial', ->
+xdescribe 'Serial', ->
   beforeEach ->
     @sut = new Serial
 
