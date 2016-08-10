@@ -5,13 +5,14 @@ class GetPorts
     throw new Error 'GetPorts requires connector' unless @connector?
 
   do: ({data}, callback) =>
-    return callback @_userError(422, 'data.example is required') unless data?.example?
 
-    metadata =
-      code: 200
-      status: http.STATUS_CODES[200]
+    @connector.getPortsAndEmit (err, data) =>
+      return callback @_userError(404, 'Error finding ports', err) if err
+      metadata =
+        code: 200
+        status: http.STATUS_CODES[200]
 
-    callback null, {metadata, data}
+      callback null, {metadata, data}
 
   _userError: (code, message) =>
     error = new Error message
