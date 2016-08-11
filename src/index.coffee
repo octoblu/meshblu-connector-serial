@@ -96,9 +96,7 @@ class Connector extends EventEmitter
     @emit 'message',
       devices: [ '*' ]
       topic: 'serial-in'
-      payload:
-        serial_in: data.toString()
-        raw: data
+      data: data
 
   emitError: (error) =>
     return unless error?
